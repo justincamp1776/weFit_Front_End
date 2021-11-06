@@ -1,0 +1,19 @@
+.box {
+  background-color: #cd6155;
+  padding-top: 70px;
+  padding-bottom: 100px;
+  padding-right: 25px;
+  padding-left: 25px;
+  border: 2px;
+}
+
+.text {
+  background-color: white;
+  color: black;
+}
+
+.formTitle{
+    align-content: center;
+    margin-left: 150px;
+    margin-bottom: 70px;
+}
