@@ -41,6 +41,8 @@ const LoginForm = (props) => {
         event.preventDefault();
         const user = {username : userName, password : password}
         console.log("onSubmit:", user)
+        console.log("Login Form Component Props :", props)
+        props.userSignIn(user)
         handleClose();
     }
 
@@ -51,20 +53,15 @@ const LoginForm = (props) => {
     <Button variant="text" size= "large" style={{color: "whitesmoke"}} onClick={handleOpen}> Sign In Here </Button>
     
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Login</DialogTitle>
+      <DialogTitle>Welcome Back!</DialogTitle>
       <DialogContent>
         <DialogContentText>
-        We are so happy that you are a part of our community.
-        weFIT is more than an app; weFIT is a culture of real 
-        people who want want real results. No more over priced 
-        programming. Here at weFIT WE care about YOU and your
-        health. Log in now to view your workouts.
         </DialogContentText>
         <TextField 
         autoFocus
         margin="dense"
         name = "user name"
-        label = "user name"
+        label = "Username"
         fullWidth
         onChange={handleNameChange}
         variant="standard"
@@ -73,7 +70,7 @@ const LoginForm = (props) => {
         autoFocus
         margin="dense"
         name = "password"
-        label = "password"
+        label = "Password"
         fullWidth
         onChange={handlePasswordChange}
         variant="standard"

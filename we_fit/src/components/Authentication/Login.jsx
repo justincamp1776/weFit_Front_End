@@ -14,18 +14,14 @@ const Login = (props) => {
          </Grid>
           <Grid justifyContent="center"container spacing={1}>
           <Grid itemxs={6} style={{marginLeft: "20px"}}   >
-          <LoginForm />  
+            <LoginForm userSignIn={props.userSignIn}  />  
           </Grid>
           <Grid itemxs={6} style={{marginLeft: "80px"}} >
-          <RegistrationForm  />
+              {console.log("Login Component Props :", props)}
+              <RegistrationForm registerNewUser={props.registerNewUser} />
           </Grid>
-          </Grid>
-     
+        </Grid>
       </Grid>
-      
-      
-
-
   );
 };
 

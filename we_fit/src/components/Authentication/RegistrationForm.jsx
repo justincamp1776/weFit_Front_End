@@ -78,6 +78,7 @@ const RegistrationForm = (props) => {
             weight : weight,
         }
         console.log("onSubmit:", newUser)
+        props.registerNewUser(newUser)
         handleClose();
     }
 
@@ -86,89 +87,89 @@ const RegistrationForm = (props) => {
     <div>
     <Button variant="text" size= "large" style={{color: "whitesmoke"}}  onClick={handleOpen}> Create Account </Button>
 
-
         <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Register Here</DialogTitle>
+        <DialogTitle> Create Your Account Here </DialogTitle>
         <DialogContent>
             <DialogContentText>
-            Welcome to weFIT. WE are glad that you have chosen to become apart of our community!
-            Lets get FIT together!
+            Welcome! WE are glad that you have chosen to become apart of the weFit community. 
+            Please introduce yourself by filling out the form below. You have 3 FREE workouts 
+            waiting for you on the other side!
             </DialogContentText>
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "email"
-            label = "email"
-            fullWidth
-            onChange={handleEmailChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "password"
-            label = "password"
-            fullWidth
-            onChange={handlePasswordChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "firstName"
-            label = "firstName"
-            fullWidth
-            onChange={handleFnameChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "lastName"
-            label = "lastName"
-            fullWidth
-            onChange={handleLnameChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "middleName"
-            label = "middleName"
-            fullWidth
-            onChange={handleMnameChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "birthDate"
-            label = "birthDate"
-            fullWidth
-            onChange={handleBdayChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "height"
-            label = "height"
-            fullWidth
-            onChange={handleHeightChange}
-            variant="standard"
-            />
-            <TextField 
-            autoFocus
-            margin="dense"
-            name = "weight"
-            label = "weight"
-            fullWidth
-            onChange={handleWeightChange}
-            variant="standard"
-            />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "email"
+                label = "Email"
+                fullWidth
+                onChange={handleEmailChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "password"
+                label = "Password"
+                fullWidth
+                onChange={handlePasswordChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "firstName"
+                label = "First Name"
+                fullWidth
+                onChange={handleFnameChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "lastName"
+                label = "Last Name"
+                fullWidth
+                onChange={handleLnameChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "middleName"
+                label = "Middle Name"
+                fullWidth
+                onChange={handleMnameChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "Birth Date"
+                label = "yyyy-mm-dd"
+                fullWidth
+                onChange={handleBdayChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "height"
+                label = "Height"
+                fullWidth
+                onChange={handleHeightChange}
+                variant="standard"
+                />
+                <TextField 
+                autoFocus
+                margin="dense"
+                name = "weight"
+                label = "Weight"
+                fullWidth
+                onChange={handleWeightChange}
+                variant="standard"
+                />
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
+                <Button onClick={handleClose}>Cancel</Button>   
                 <Button onClick={handleSubmit}>Submit</Button>
             </DialogActions>
         </Dialog>
