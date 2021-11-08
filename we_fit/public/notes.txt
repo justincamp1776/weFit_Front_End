@@ -1,0 +1,4 @@
+
+1. Authentication, Timing, and Redirects. ????
+
+2.

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import image from "./images/gym.png";
+import { Button } from "@mui/material";
 import {
   Switch,
   Redirect,
@@ -10,32 +11,33 @@ import {
 } from "react-router-dom";
 import Login from "./components/Authentication/Login";
 import Home from "./components/Home/Home";
-import  * as jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isUserAuthenticated: false,
       user: {},
+      isLoggedIn: false,
     };
   }
 
   componentDidMount() {
-    console.log("Component Did Mount :", this.state.user);
-    const jwt = localStorage.getItem("token");
-    console.log("Component Did Mount JWT :", jwt)
+    const tokenFromStorage = localStorage.getItem("token");
+    console.log("Component Did Mount JWT :", tokenFromStorage);
     try {
-      const user = jwt_decode(jwt);
-      this.setState({ user, isUserAuthenticated : true });
+      const user = jwt_decode(tokenFromStorage);
+      this.setState({ user, isLoggedIn: true });
+   
     } catch {
-      console.log("componentDidMount jumped to catch :", this.state.user, this.state.isUserAuthenticated);
+      console.log(
+        "componentDidMount jumped to catch :",
+        this.state.user,
+        this.state.loggedIn
+      );
     }
   }
-
-  // Create POST request to register new user
-  // Once user is created create POST request for userSignIN
 
   registerNewUser = async (newUser) => {
     console.log("registerNewUser Function :", newUser);
@@ -51,24 +53,31 @@ class App extends Component {
   };
 
   userSignIn = async (userCreds) => {
-    console.log("userSignIn Function :", userCreds)
+    console.log("userSignIn Function :", userCreds);
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/auth/login/', userCreds)
-      localStorage.setItem('token', response.data.access)
-      window.location = '/'
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/auth/login/",
+        userCreds
+      );
+      localStorage.setItem("token", response.data.access);
+      window.location = "/";
+    } catch {
+      alert("Username and/or Password Invalid. Please try again.");
     }
-    catch {
-      alert("Username and/or Password Invalid. Please try again.")
-    }
-  }
+  };
 
-  userLogOut = async()=>{
-    localStorage.removeItem('token');
-    console.log("Token Has Been Removed From Storage")
-  }
+  userLogOut = async () => {
+    localStorage.removeItem("token");
+    console.log("Token Has Been Removed From Storage");
+  };
+
+
 
   render() {
+    var isLoggedIn = this.state.isLoggedIn;
     var user = this.state.user;
+    console.log("Is Logged In in Render :", isLoggedIn);
+    console.log("User Variable in Render :", user);
 
     return (
       <div className="background" style={{ backgroundImage: `url(${image})` }}>
@@ -83,6 +92,7 @@ class App extends Component {
                 <Link to="/login">Login</Link>
               </li>
             </ul>
+            <Button onClick={this.userLogOut}> LOG OUT </Button>
             <hr />
 
             <Switch>
@@ -90,11 +100,11 @@ class App extends Component {
                 exact
                 path="/"
                 render={(props) => {
-                  return this.state.isUserAuthenticated ? (
-                    <Redirect to="/home" />
-                  ) : (
-                    <Redirect to="/login" />
-                  );
+                  if ((isLoggedIn = true)) {
+                    return <Redirect to="/home" />;
+                  } else {
+                    return <Redirect to="/login" />;
+                  }
                 }}
               />
 
@@ -102,13 +112,17 @@ class App extends Component {
                 exact
                 path="/login"
                 render={(props) => (
-                  <Login {...props} registerNewUser={this.registerNewUser} userSignIn={this.userSignIn} />
+                  <Login
+                    {...props}
+                    registerNewUser={this.registerNewUser}
+                    userSignIn={this.userSignIn}
+                  />
                 )}
               />
               <Route
                 exact
                 path="/home"
-                render={(props) => <Home {...props} />}
+                render={(props) => <Home {...props} user={user} />}
               />
               {/* <Route path='/welcome' element={<Home/>} /> */}
             </Switch>
