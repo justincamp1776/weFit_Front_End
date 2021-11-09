@@ -1,4 +1,9 @@
 
 1. Authentication, Timing, and Redirects. ????
 
-2.
+2. Get List of all exercises. 
+    Create 3 Tables or Lists and filter by workout name.
+
+3. Create Single exercise Component that gives a brief description of each movement.
+
+3. Create a How To Exercise Card (reps(or time), sets, and rest) depenmdant on drop drop down selection

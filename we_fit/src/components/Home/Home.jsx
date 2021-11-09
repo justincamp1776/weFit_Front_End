@@ -2,6 +2,7 @@ import React from "react";
 import './Home.css';
 import DisplayGoal from '../DisplayGoal/DisplayGoal';
 import WorkoutTypeSelector from "../WorkoutTypeSelector/WorkoutTypeSelector";
+import Exercises from '../Excercises/Exercises' ;
 
 const Home = (props) => {
     return (  
@@ -11,6 +12,7 @@ const Home = (props) => {
             <WorkoutTypeSelector />
             {console.log("Home Page User Object :", props.user)}
             <DisplayGoal user={props.user}/>
+            <Exercises />
         </div>
         
     );
