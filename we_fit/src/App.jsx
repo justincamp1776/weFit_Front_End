@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
+import HomeScreen from "./images/HomeImage.png";
 import image from "./images/gym.png";
+import newImage from "./images/refac.png";
 import { Button } from "@mui/material";
+import Routines from "./components/Routines/Routines";
 import {
   Switch,
   Redirect,
@@ -11,6 +14,7 @@ import {
 } from "react-router-dom";
 import Login from "./components/Authentication/Login";
 import Home from "./components/Home/Home";
+import CreateRoutine from "./components/CreateRoutine/CreateRoutine";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
@@ -25,22 +29,15 @@ class App extends Component {
 
   componentDidMount() {
     const tokenFromStorage = localStorage.getItem("token");
-    console.log("Component Did Mount JWT :", tokenFromStorage);
     try {
       const user = jwt_decode(tokenFromStorage);
       this.setState({ user, isLoggedIn: true });
-   
     } catch {
-      console.log(
-        "componentDidMount jumped to catch :",
-        this.state.user,
-        this.state.loggedIn
-      );
+      console.log("Check User Credentials :");
     }
   }
 
   registerNewUser = async (newUser) => {
-    console.log("registerNewUser Function :", newUser);
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/auth/register/",
@@ -53,7 +50,6 @@ class App extends Component {
   };
 
   userSignIn = async (userCreds) => {
-    console.log("userSignIn Function :", userCreds);
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/auth/login/",
@@ -66,12 +62,23 @@ class App extends Component {
     }
   };
 
+  getPrimaryLifts = () => {
+    var primeLifts = [];
+    let item = this.state.exercises.map(function (lift) {
+      if (lift.priority.toLowerCase() == "1a".toLowerCase()) {
+        primeLifts.push(lift);
+      }
+    });
+    this.setState({
+      primary_lifts: primeLifts,
+    });
+    console.log("get Primary Lifts :", this.state.primary_lifts);
+  };
+
   userLogOut = async () => {
     localStorage.removeItem("token");
     console.log("Token Has Been Removed From Storage");
   };
-
-
 
   render() {
     var isLoggedIn = this.state.isLoggedIn;
@@ -80,16 +87,27 @@ class App extends Component {
     console.log("User Variable in Render :", user);
 
     return (
-      <div className="background" style={{ backgroundImage: `url(${image})` }}>
+      <div
+        className="background"
+        style={{ backgroundImage: `url(${HomeScreen})`, color: "whitesmoke" }}
+      >
         {/* Nav Bar */}
         <Router>
           <div>
             <ul>
               <li>
-                <Link to="/home">Home </Link>
+                <Link to="/home" variant="filled">
+                  Home{" "}
+                </Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/create">Create Routine</Link>
+              </li>
+              <li>
+                <Link to="/routines">myRoutines</Link>
               </li>
             </ul>
             <Button onClick={this.userLogOut}> LOG OUT </Button>
@@ -122,7 +140,29 @@ class App extends Component {
               <Route
                 exact
                 path="/home"
-                render={(props) => <Home {...props} user={user} />}
+                render={(props) => (
+                  <Home
+                    {...props}
+                    user={user}
+                    exercises={this.state.exercises}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/routines"
+                render={(props) => <Routines {...props} user={user} />}
+              />
+              <Route
+                exact
+                path="/create"
+                render={(props) => (
+                  <CreateRoutine
+                    {...props}
+                    user={user}
+                    primary_lifts={this.state.primary_lifts}
+                  />
+                )}
               />
               {/* <Route path='/welcome' element={<Home/>} /> */}
             </Switch>

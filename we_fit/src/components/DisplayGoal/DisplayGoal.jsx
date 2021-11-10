@@ -1,10 +1,8 @@
 import axios from "axios";
 import React, { Component } from "react";
 import {Card, ListGroup} from 'react-bootstrap';
-import CreateGoal from "../CreateGoal/CreateGoal";
 import {Button}  from '@mui/material';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import CreateGoalModal from '../CreateGoal/CreateGoalModal';
+import CreateGoalModal from '../CreatGoalModal/CreateGoalModal';
 
 class DisplayGoal extends Component {
   constructor(props) {
@@ -55,7 +53,7 @@ class DisplayGoal extends Component {
   render() {
     var goals = this.state.goals;
     return (
-<div>
+      <div>
         <Card style={{ width: '30rem' }}>
         
         <Card.Header style={{color: "black"}}>My Performance Goals :</Card.Header>
@@ -69,19 +67,7 @@ class DisplayGoal extends Component {
         </ListGroup>
         <CreateGoalModal user={this.props.user} postNewGoal={this.postNewGoal} />
         </Card>
-
-
-{/* 
-      <div style={{color: "whitesmoke"}}>
-        <h3>Performance Goals: </h3>
-          {goals.map(item =>
-            goals.length > 0 ? 
-            <li> {item.custom_goal}    {console.log(item.id)}  <Button  onClick={()=>this.deleteGoal(item.id)}>Remove</Button>   </li>   
-        : <h1>This is where undefined stuff goes</h1>
-        )}
-        <CreateGoalModal user={this.props.user} postNewGoal={this.postNewGoal} />
-      </div> */}
-      </div>
+     </div>
     );
   }
 }

@@ -1,0 +1,13 @@
+
+.button{
+   
+    background-color: "#FF0000"; 
+    border: none;
+    background-color: #f44336;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+     
+}

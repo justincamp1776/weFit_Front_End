@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "@mui/material";
+import Primary from "./Primary";
+// import PrimaryModal from "./PrimaryModal"
+// import CreateRoutine from "./createRoutine"
+
 
 class Exercises extends Component {
   constructor(props) {
@@ -8,14 +12,12 @@ class Exercises extends Component {
     this.state = {
       exercises: [],
       primary_lifts: [],
-      prime_pairs: [],
-      secondary_upper: [],
     };
   }
 
   componentDidMount = () => {
     this.getAllExercises();
-    this.getPrimaryLifts();
+   
   };
 
   getAllExercises = async () => {
@@ -23,9 +25,10 @@ class Exercises extends Component {
     this.setState({
       exercises: response.data,
     });
+    this.getPrimaryLifts();
     console.log("getAllExercises :", this.state.exercises);
   };
-
+  
   getPrimaryLifts = () => {
     var primeLifts = [];
     let item = this.state.exercises.map(function (lift) {
@@ -34,18 +37,22 @@ class Exercises extends Component {
       }
     });
     this.setState({
-      primary_lifts: primeLifts,
+      primary_lifts: primeLifts
     });
     console.log("get Primary Lifts :", this.state.primary_lifts);
   };
 
+ 
+
   render() {
     return (
       <div>
-        <Button onClick={this.getPrimaryLifts}>Click Me</Button>
+        
+        {/* <Primary primary_lifts={this.state.primary_lifts}/> */}
+        {/* <CreateRoutine primary_lifts={this.state.primary_lifts}/> */}
       </div>
     );
-  }
+  } 
 }
 
 export default Exercises;

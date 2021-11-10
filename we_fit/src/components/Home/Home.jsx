@@ -1,18 +1,27 @@
 import React from "react";
 import './Home.css';
-import DisplayGoal from '../DisplayGoal/DisplayGoal';
-import WorkoutTypeSelector from "../WorkoutTypeSelector/WorkoutTypeSelector";
-import Exercises from '../Excercises/Exercises' ;
+import DisplayGoal from '../DisplayGoal/DisplayGoal'
+
+
+
+import {Grid}  from '@mui/material';
 
 const Home = (props) => {
+
+    // Select Drop Down For Display Routine (Day 1, Day 2, Day3)
+
     return (  
 
         <div style={{color: "whitesmoke"}}>
-            <h1>This is the Home Page</h1>
-            <WorkoutTypeSelector />
-            {console.log("Home Page User Object :", props.user)}
-            <DisplayGoal user={props.user}/>
-            <Exercises />
+            <Grid container spacing={10}>
+                <Grid item xs={12}>
+                    <Grid container spacing={10} style={{marginBottom: "100px"}}>  
+                       <Grid item xs ={6}>
+                        <DisplayGoal user={props.user}/>
+                    </Grid>
+                    </Grid>
+                    </Grid>
+                </Grid>        
         </div>
         
     );

@@ -85,7 +85,7 @@ const RegistrationForm = (props) => {
 
   return (
     <div>
-    <Button variant="text" size= "large" style={{color: "whitesmoke"}}  onClick={handleOpen}> Create Account </Button>
+    <button className="button"   onClick={handleOpen}> Create Account </button>
 
         <Dialog open={open} onClose={handleClose}>
         <DialogTitle> Create Your Account Here </DialogTitle>

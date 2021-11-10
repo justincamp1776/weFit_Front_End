@@ -9,9 +9,9 @@ const Login = (props) => {
   return (
  
         <Grid justifyContent="center" style={{marginTop: "280px"}}container spacing={1}>
-          <Grid itemxs={12}>
+          {/* <Grid itemxs={12}>
              <img src={image} alt="personal trainer"></img>
-         </Grid>
+         </Grid> */}
           <Grid justifyContent="center"container spacing={1}>
           <Grid itemxs={6} style={{marginLeft: "20px"}}   >
             <LoginForm userSignIn={props.userSignIn}  />  

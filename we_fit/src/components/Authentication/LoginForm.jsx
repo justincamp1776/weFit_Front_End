@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import "./LoginForm.css";
-import Button from "@mui/material/Button";
+import {Button} from '@mui/material'
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -50,7 +50,7 @@ const LoginForm = (props) => {
   return (
     <div>
      
-    <Button variant="text" size= "large" style={{color: "whitesmoke"}} onClick={handleOpen}> Sign In Here </Button>
+    <button className="button"  size= "large"  onClick={handleOpen}> Sign In Here </button>
     
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Welcome Back!</DialogTitle>
