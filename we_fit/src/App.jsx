@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import HomeScreen from "./images/HomeImage.png";
+import NavBar from "./components/NavBar/NavBar";
 import image from "./images/gym.png";
 import newImage from "./images/refac.png";
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import Routines from "./components/Routines/Routines";
 import {
   Switch,
@@ -91,12 +92,13 @@ class App extends Component {
         className="background"
         style={{ backgroundImage: `url(${HomeScreen})`, color: "whitesmoke" }}
       >
-        {/* Nav Bar */}
+        <Grid>
+       <NavBar user={user} userLogOut={this.userLogOut}/>
         <Router>
           <div>
             <ul>
               <li>
-                <Link to="/home" variant="filled">
+                <Link to="/home" user={this.state.user} variant="filled">
                   Home{" "}
                 </Link>
               </li>
@@ -107,7 +109,7 @@ class App extends Component {
                 <Link to="/create">Create Routine</Link>
               </li>
               <li>
-                <Link to="/routines">myRoutines</Link>
+                <Link to="/routines" user={this.state.user}>myRoutines</Link>
               </li>
             </ul>
             <Button onClick={this.userLogOut}> LOG OUT </Button>
@@ -119,7 +121,7 @@ class App extends Component {
                 path="/"
                 render={(props) => {
                   if ((isLoggedIn = true)) {
-                    return <Redirect to="/home" />;
+                    return <Redirect to="/home" user={user}/>;
                   } else {
                     return <Redirect to="/login" />;
                   }
@@ -144,7 +146,6 @@ class App extends Component {
                   <Home
                     {...props}
                     user={user}
-                    exercises={this.state.exercises}
                   />
                 )}
               />
@@ -168,6 +169,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
+        </Grid>
       </div>
     );
   }

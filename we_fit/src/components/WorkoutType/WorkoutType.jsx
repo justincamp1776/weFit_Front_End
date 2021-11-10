@@ -26,7 +26,7 @@ class WorkoutType extends Component {
 
   handleSelect = (event) => {
     event.preventDefault();
-    if (this.state.select == 1) {
+    if (this.state.select === "1") {
       this.setState({
         type: {
           name: "Fat Burning",
@@ -37,7 +37,7 @@ class WorkoutType extends Component {
           weight: "Light (65%-75% of 1 Rep Max)",
         },
       });
-    } else if (this.state.select == 2) {
+    } else if (this.state.select === "2") {
       this.setState({
         type: {
           name: "Increase Muscle Size",
@@ -48,7 +48,7 @@ class WorkoutType extends Component {
           weight: "Medium/ Heavy (75%-85% of 1 Rep Max)",
         },
       });
-    } else if(this.state.select == 3){
+    } else if(this.state.select === "3"){
       this.setState({
         type: {
           name: "Increase Maximum Strength",
@@ -79,7 +79,7 @@ class WorkoutType extends Component {
               <option value="3">Increase Maximum Strength</option>
             </select>
           </div>
-          {/* <FilterRoutines handleFilterSelection={this.handleFilterSelection}/> */}
+         
           <Card.Header style={{ color: "black" }}> {type.name}: </Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item>

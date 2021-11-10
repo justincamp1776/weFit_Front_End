@@ -8,27 +8,25 @@ class DisplayGoal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        user : this.props.user,
         goals: [],
     };
   }
 
 
   componentDidMount = () =>{
-        console.log("ComDidMount :", this.state.user)
+        console.log("ComDidMount :", this.props.user)
       this.getUserGoals();
   }
 
   getUserGoals = async () => {
     try {
-      console.log("getUserGoal UserId :", this.state.user.user_id);
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/goals/${this.state.user.user_id}/`
+        `http://127.0.0.1:8000/api/goals/${this.props.user.user_id}/`
       );
       this.setState({
         goals: response.data,
       });
-      console.log("getUserGoal GOAL :", this.state.goals);
+      
     } catch (err) {
       console.log("Unable To Fetch Goal");
     }
@@ -55,13 +53,11 @@ class DisplayGoal extends Component {
     return (
       <div>
         <Card style={{ width: '30rem' }}>
-        
         <Card.Header style={{color: "black"}}>My Performance Goals :</Card.Header>
         <ListGroup variant="flush">
         {goals.map(item =>
         goals.length > 0 ? 
         <ListGroup.Item>{item.custom_goal}    {console.log(item.id)}  <Button onClick={()=>this.deleteGoal(item.id)}>Delete</Button>   </ListGroup.Item>
-        
         : <h1>This is where undefined stuff goes</h1>
         )}
         </ListGroup>
@@ -75,4 +71,3 @@ class DisplayGoal extends Component {
 export default DisplayGoal;
 
 
-{/* <DeleteOutlineIcon onClick={this.deleteGoal}></DeleteOutlineIcon>  */}

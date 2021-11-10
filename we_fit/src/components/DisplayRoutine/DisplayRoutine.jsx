@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, ListGroup} from 'react-bootstrap';
 import axios from 'axios';
+import SingleExercise from '../SingleExercise/SingleExercise';
 
 class DisplayRoutine extends Component {
     constructor(props) {
@@ -64,7 +65,7 @@ class DisplayRoutine extends Component {
         return ( 
             <div>
                 
-                <Card style={{ width: '20rem' }}>
+                <Card style={{ width: '30rem' }}>
                 <div>
                         <select value={this.state.routine} onChange={this.handleChange}
                             className="browser-default custom-select" onClick={this.handleSubmit}>
@@ -74,12 +75,12 @@ class DisplayRoutine extends Component {
                             <option value="Day 3">Day 3</option>
                         </select>
                 </div>
-                {/* <FilterRoutines handleFilterSelection={this.handleFilterSelection}/> */}
-                <Card.Header style={{color: "black"}}>myRoutines :</Card.Header>
+
+                <Card.Header style={{backgroundColor: "black", color: "whitesmoke"}}>Workout of the Day:</Card.Header>
                     <ListGroup variant="flush">
                     {exercises.map(item =>
                     exercises.length > 0 ? 
-                    <ListGroup.Item>{`${item.priority}` + "    " + `${item.name}`} {console.log(item.id)} </ListGroup.Item>
+                    <ListGroup.Item>{`${item.priority}` + "    " + `${item.name}`}  <SingleExercise exercise={item}/> </ListGroup.Item>
                     : <h1>This is where undefined stuff goes</h1>
                     )}
                 </ListGroup>
