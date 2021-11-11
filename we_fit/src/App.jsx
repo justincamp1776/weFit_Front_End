@@ -102,7 +102,7 @@ class App extends Component {
        <NavBar user={this.state.user} userLogOut={this.userLogOut} isLoggedIn={this.state.isLoggedIn}/>
         <Router>
           <div>
-            <ul>
+            {/* <ul>
               <li>
                 <Link to="/home" user={this.state.user} variant="filled">
                   Home{" "}
@@ -119,7 +119,7 @@ class App extends Component {
               </li>
             </ul>
             <Button onClick={this.userLogOut}> LOG OUT </Button>
-            <hr />
+            <hr /> */}
 
             <Switch>
               <Route
@@ -128,17 +128,50 @@ class App extends Component {
                 render={(props) => {
                   if (isLoggedIn == true) {
                     return <Redirect to="/home" user={user}/>;
-                  } else if(!user) {
+                  } else {
                     return <Redirect to="/login" />;
                   }
                 }}
               />
 
-              {/* <Route exact path="/login" component={Login}  registerNewUser={this.registerNewUser}
-                    userSignIn={this.userSignIn} /> */}
-
-
               <Route
+                exact
+                path="/home"
+                render={(props) => {
+                  if (isLoggedIn == true) {
+                    return <Home
+                    {...props}
+                    user={user}
+                  />;
+                  } else {
+                    return  <Login
+                    {...props}
+                    registerNewUser={this.registerNewUser}
+                    userSignIn={this.userSignIn}
+                  />;
+                  }
+                }}
+              />
+              <Route
+                exact
+                path="/login"
+                render={(props) => {
+                  if (isLoggedIn == true) {
+                    return <Home
+                    {...props}
+                    user={user}
+                  />;
+                  } else {
+                    return  <Login
+                    {...props}
+                    registerNewUser={this.registerNewUser}
+                    userSignIn={this.userSignIn}
+                  />;
+                  }
+                }}
+              />
+
+              {/* <Route
                 exact
                 path="/login"
                 render={(props) => (
@@ -147,9 +180,9 @@ class App extends Component {
                     registerNewUser={this.registerNewUser}
                     userSignIn={this.userSignIn}
                   />
-                )}
-              />
-              <Route
+                )} */}
+              {/* /> */}
+              {/* <Route
                 exact
                 path="/home"
                 render={(props) => (
@@ -158,12 +191,30 @@ class App extends Component {
                     user={user}
                   />
                 )}
+              /> */}
+
+                <Route
+                exact
+                path="/routines"
+                render={(props) => {
+                  if (isLoggedIn == true) {
+                    return <Routines {...props} user={user}
+                  />;
+                  } else {
+                    return  <Login
+                    {...props}
+                    registerNewUser={this.registerNewUser}
+                    userSignIn={this.userSignIn}
+                  />;
+                  }
+                }}
               />
+{/* 
               <Route
                 exact
                 path="/routines"
                 render={(props) => <Routines {...props} user={user} />}
-              />
+              /> */}
             </Switch>
           </div>
         </Router>

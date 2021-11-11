@@ -1,4 +1,10 @@
 
-1. NavBar or Buttons
+1. NavBar Links - conditional render + login/home redirect - 100%
 
-2. 
+2. Home Button - User Props not being passed. Cannot get goals on the comeback - 100%
+
+3. Styling - 1. Desktop design - 70%  / Mobile Responsive - 0%
+
+4. NavBar - "make sticky"
+
+
