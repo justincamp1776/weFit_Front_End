@@ -14,6 +14,7 @@ import {
   Link,
 } from "react-router-dom";
 import Login from "./components/Authentication/Login";
+import TitleBar from './components/TitleBar/TitleBar';
 import Home from "./components/Home/Home";
 import CreateRoutine from "./components/CreateRoutine/CreateRoutine";
 import jwt_decode from "jwt-decode";
@@ -32,7 +33,8 @@ class App extends Component {
     const tokenFromStorage = localStorage.getItem("token");
     try {
       const user = jwt_decode(tokenFromStorage);
-      this.setState({ user, isLoggedIn: true });
+      this.setState({ user, isLoggedIn : true });
+     
     } catch {
       console.log("Check User Credentials :");
     }
@@ -78,7 +80,9 @@ class App extends Component {
 
   userLogOut = async () => {
     localStorage.removeItem("token");
-    console.log("Token Has Been Removed From Storage");
+    this.setState({
+      isLoggedIn : false
+    })
   };
 
   render() {
@@ -88,12 +92,14 @@ class App extends Component {
     console.log("User Variable in Render :", user);
 
     return (
+     
       <div
         className="background"
         style={{ backgroundImage: `url(${HomeScreen})`, color: "whitesmoke" }}
       >
         <Grid>
-       <NavBar user={user} userLogOut={this.userLogOut}/>
+          {/* <TitleBar /> */}
+       <NavBar user={this.state.user} userLogOut={this.userLogOut} isLoggedIn={this.state.isLoggedIn}/>
         <Router>
           <div>
             <ul>
@@ -120,13 +126,17 @@ class App extends Component {
                 exact
                 path="/"
                 render={(props) => {
-                  if ((isLoggedIn = true)) {
+                  if (isLoggedIn == true) {
                     return <Redirect to="/home" user={user}/>;
-                  } else {
+                  } else if(!user) {
                     return <Redirect to="/login" />;
                   }
                 }}
               />
+
+              {/* <Route exact path="/login" component={Login}  registerNewUser={this.registerNewUser}
+                    userSignIn={this.userSignIn} /> */}
+
 
               <Route
                 exact
@@ -154,23 +164,12 @@ class App extends Component {
                 path="/routines"
                 render={(props) => <Routines {...props} user={user} />}
               />
-              <Route
-                exact
-                path="/create"
-                render={(props) => (
-                  <CreateRoutine
-                    {...props}
-                    user={user}
-                    primary_lifts={this.state.primary_lifts}
-                  />
-                )}
-              />
-              {/* <Route path='/welcome' element={<Home/>} /> */}
             </Switch>
           </div>
         </Router>
         </Grid>
       </div>
+    
     );
   }
 }

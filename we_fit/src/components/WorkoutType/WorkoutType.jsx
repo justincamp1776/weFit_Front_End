@@ -67,7 +67,7 @@ class WorkoutType extends Component {
 
     return (
       <div>
-        <Card style={{ width: "20rem" }}>
+        <Card style={{ width: "30rem" }}>
           <div>
             <select
               className="browser-default custom-select"

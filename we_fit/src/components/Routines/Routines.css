@@ -1,0 +1,16 @@
+
+.workouts{
+    padding-left: "200px";
+    margin-bottom: "200px";
+}
+
+.background{
+    height: -50vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-attachment: scroll;
+    
+  
+}
