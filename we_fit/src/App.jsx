@@ -1,22 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import HomeScreen from "./images/HomeImage.png";
 import NavBar from "./components/NavBar/NavBar";
-import image from "./images/gym.png";
-import newImage from "./images/refac.png";
-import { Button, Grid } from "@mui/material";
 import Routines from "./components/Routines/Routines";
 import {
   Switch,
   Redirect,
   Route,
   BrowserRouter as Router,
-  Link,
 } from "react-router-dom";
 import Login from "./components/Authentication/Login";
-import TitleBar from './components/TitleBar/TitleBar';
 import Home from "./components/Home/Home";
-import CreateRoutine from "./components/CreateRoutine/CreateRoutine";
+import Services from './components/Services/Services';
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
@@ -78,6 +72,10 @@ class App extends Component {
     console.log("get Primary Lifts :", this.state.primary_lifts);
   };
 
+  callToAction = () =>{
+    alert("555-555-5555")
+  }
+
   userLogOut = async () => {
     localStorage.removeItem("token");
     this.setState({
@@ -100,7 +98,7 @@ class App extends Component {
     <div style={{backgroundColor: "black"}}>
        
          
-       <NavBar user={this.state.user} userLogOut={this.userLogOut} isLoggedIn={this.state.isLoggedIn}/>
+       <NavBar user={this.state.user} userLogOut={this.userLogOut} isLoggedIn={this.state.isLoggedIn} callToAction={this.callToAction}/>
         <Router>
           <div>
 
@@ -170,6 +168,7 @@ class App extends Component {
                   }
                 }}
               />
+               <Route exact path="/services" render ={props => <Services {...props} />} />
             </Switch>
           </div>
         </Router>

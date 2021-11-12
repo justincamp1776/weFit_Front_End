@@ -32,6 +32,10 @@ const NavBar = (props) => {
                 myRoutine
               </Nav.Link>
             )}
+             <Nav.Link href="/services">
+                {" "}
+                Services
+              </Nav.Link>
             {props.isLoggedIn && (
               <NavDropdown title="Resources" id="collasible-nav-dropdown">
                 <NavDropdown.Item
@@ -56,6 +60,11 @@ const NavBar = (props) => {
             )}
           </Nav>
           <Nav>
+          <Nav.Link
+                onClick={props.callToAction}
+              >
+                Contact
+              </Nav.Link>
             {!props.isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
             {props.isLoggedIn && (
               <Nav.Link
@@ -66,6 +75,7 @@ const NavBar = (props) => {
                 Logout
               </Nav.Link>
             )}
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

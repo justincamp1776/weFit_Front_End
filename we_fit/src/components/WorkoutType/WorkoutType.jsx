@@ -31,8 +31,8 @@ class WorkoutType extends Component {
         type: {
           name: "Fat Burning",
           sets: "3 to 4 Rounds",
-          aReps: "30 seconds each exercise",
-          bReps: "30 seconds each exercise",
+          aReps: "30 seconds each (a) exercise",
+          bReps: "30 seconds each (b) exercise",
           rest: "30 seconds",
           weight: "Light (65%-75% of 1 Rep Max)",
         },
@@ -42,8 +42,8 @@ class WorkoutType extends Component {
         type: {
           name: "Increase Muscle Size",
           sets: "3 to 4 Rounds",
-          aReps: "8 reps each (a)exercise",
-          bReps: "12 reps each (b)exercise",
+          aReps: "8 reps of each (a) exercise",
+          bReps: "12 reps of each (b) exercise",
           rest: "90 seconds",
           weight: "Medium/ Heavy (75%-85% of 1 Rep Max)",
         },
@@ -53,8 +53,8 @@ class WorkoutType extends Component {
         type: {
           name: "Increase Maximum Strength",
           sets: "4 to 5 Rounds",
-          aReps: "5 reps each (a)exercise",
-          bReps: "10 reps each (b)exercise",
+          aReps: "5 reps of each (a) exercise",
+          bReps: "10 reps of each (b) exercise",
           rest: "2-3 minutes",
           weight: "Heavy (85%-95% of 1 Rep Max)",
         },

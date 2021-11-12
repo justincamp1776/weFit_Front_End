@@ -44,8 +44,7 @@ const SingleExercise = (props) => {
                     </Card>
                     </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button >Submit</Button>
+                <Button onClick={handleClose}>Collapse</Button>
             </DialogActions>
             </Dialog>
     </div>
