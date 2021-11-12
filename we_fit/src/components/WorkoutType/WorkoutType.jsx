@@ -31,8 +31,8 @@ class WorkoutType extends Component {
         type: {
           name: "Fat Burning",
           sets: "3 to 4 Rounds",
-          aReps: "30 seconds each (a) exercise",
-          bReps: "30 seconds each (b) exercise",
+          aReps: "30 seconds each exercise",
+          bReps: "30 seconds each exercise",
           rest: "30 seconds",
           weight: "Light (65%-75% of 1 Rep Max)",
         },
@@ -42,8 +42,8 @@ class WorkoutType extends Component {
         type: {
           name: "Increase Muscle Size",
           sets: "3 to 4 Rounds",
-          aReps: "8 reps of each (a) exercise",
-          bReps: "12 reps of each (b) exercise",
+          aReps: "8 reps of each exercise",
+          bReps: "12 reps of each exercise",
           rest: "90 seconds",
           weight: "Medium/ Heavy (75%-85% of 1 Rep Max)",
         },
@@ -53,8 +53,8 @@ class WorkoutType extends Component {
         type: {
           name: "Increase Maximum Strength",
           sets: "4 to 5 Rounds",
-          aReps: "5 reps of each (a) exercise",
-          bReps: "10 reps of each (b) exercise",
+          aReps: "5 reps of each exercise",
+          bReps: "10 reps of each exercise",
           rest: "2-3 minutes",
           weight: "Heavy (85%-95% of 1 Rep Max)",
         },
@@ -83,11 +83,11 @@ class WorkoutType extends Component {
           <Card.Header style={{ color: "black" }}> {type.name}: </Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              Perform 1 set of (a) then 1 set of (b) until rounds are complete
+              Perform 1a then 1b and repeat until rounds are complete. Then move to 2a and 2b...
             </ListGroup.Item>
             <ListGroup.Item>REPS : </ListGroup.Item>
-            <ListGroup.Item> 1 set of (a) = {type.aReps}</ListGroup.Item>
-            <ListGroup.Item> 1 set of (b) = {type.bReps}</ListGroup.Item>
+            <ListGroup.Item> All A Groups = {type.aReps}</ListGroup.Item>
+            <ListGroup.Item> All B Groups = {type.bReps}</ListGroup.Item>
             <ListGroup.Item>
               {" "}
               REST : {type.rest} between each round.{" "}
