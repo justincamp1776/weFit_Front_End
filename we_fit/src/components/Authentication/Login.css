@@ -1,8 +1,10 @@
 
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+.background{
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-attachment: scroll;
+  padding-top: 250px;
+}

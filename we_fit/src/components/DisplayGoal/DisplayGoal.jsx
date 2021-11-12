@@ -51,9 +51,9 @@ class DisplayGoal extends Component {
   render() {
     var goals = this.state.goals;
     return (
-      <div>
+ 
         <Card style={{ width: '30rem' }}>
-        <Card.Header style={{color: "black"}}>My Performance Goals :</Card.Header>
+        <Card.Header style={{color: "black"}}> GOAL TRACKER:</Card.Header>
         <ListGroup variant="flush">
         {goals.map(item =>
         goals.length > 0 ? 
@@ -63,7 +63,7 @@ class DisplayGoal extends Component {
         </ListGroup>
         <CreateGoalModal user={this.props.user} postNewGoal={this.postNewGoal} />
         </Card>
-     </div>
+
     );
   }
 }

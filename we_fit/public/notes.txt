@@ -5,6 +5,10 @@
 
 3. Styling - 1. Desktop design - 70%  / Mobile Responsive - 0%
 
-4. NavBar - "make sticky"
+    Option 1: Header Image , Option 2 : 
+
+4. NavBar - "make sticky" 100%
+
+5. myRoutines - state issue. When state is set the other lifts are lost. Get all lifts again. filter again. Need to find soltuion.
 
 

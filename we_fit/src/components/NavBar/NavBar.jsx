@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
+
 const NavBar = (props) => {
   return (
     <Navbar
@@ -13,12 +14,10 @@ const NavBar = (props) => {
       bg="dark"
       style={{ opacity: "80%", color: "red", fontSize: 20 }}
       variant="dark"
+      sticky="top" 
     >
       {console.log("NavBar :", props.user)}
       <Container>
-        <a class="navbar-brand" href="#">
-          {/* <img src={Logo} alt="..." height="75" width="75"></img> */}
-        </a>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

@@ -93,33 +93,16 @@ class App extends Component {
 
     return (
      
-      <div
-        className="background"
-        style={{ backgroundImage: `url(${HomeScreen})`, color: "whitesmoke" }}
-      >
-        <Grid>
-          {/* <TitleBar /> */}
+      // <div
+      //   className="background"
+      //   style={{ backgroundImage: `url(${HomeScreen})`, color: "whitesmoke" }}
+      // >
+    <div style={{backgroundColor: "black"}}>
+       
+         
        <NavBar user={this.state.user} userLogOut={this.userLogOut} isLoggedIn={this.state.isLoggedIn}/>
         <Router>
           <div>
-            {/* <ul>
-              <li>
-                <Link to="/home" user={this.state.user} variant="filled">
-                  Home{" "}
-                </Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/create">Create Routine</Link>
-              </li>
-              <li>
-                <Link to="/routines" user={this.state.user}>myRoutines</Link>
-              </li>
-            </ul>
-            <Button onClick={this.userLogOut}> LOG OUT </Button>
-            <hr /> */}
 
             <Switch>
               <Route
@@ -171,28 +154,6 @@ class App extends Component {
                 }}
               />
 
-              {/* <Route
-                exact
-                path="/login"
-                render={(props) => (
-                  <Login
-                    {...props}
-                    registerNewUser={this.registerNewUser}
-                    userSignIn={this.userSignIn}
-                  />
-                )} */}
-              {/* /> */}
-              {/* <Route
-                exact
-                path="/home"
-                render={(props) => (
-                  <Home
-                    {...props}
-                    user={user}
-                  />
-                )}
-              /> */}
-
                 <Route
                 exact
                 path="/routines"
@@ -209,18 +170,11 @@ class App extends Component {
                   }
                 }}
               />
-{/* 
-              <Route
-                exact
-                path="/routines"
-                render={(props) => <Routines {...props} user={user} />}
-              /> */}
             </Switch>
           </div>
         </Router>
-        </Grid>
-      </div>
-    
+       
+        </div>
     );
   }
 }
