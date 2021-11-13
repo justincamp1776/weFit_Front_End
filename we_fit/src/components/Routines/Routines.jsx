@@ -3,7 +3,8 @@ import {Grid} from '@mui/material';
 import WorkoutType from "../WorkoutType/WorkoutType";
 import DisplayRoutine from "../DisplayRoutine/DisplayRoutine";
 import './Routines.css';
-import header2 from './Images/header2.png'
+// import header2 from './Images/header2.png'
+import header from './Images/header.png';
 import gym from './Images/equipment.png';
 import gym2 from './Images/gym2.png';
 
@@ -15,7 +16,7 @@ const Routines = (props) => {
  
       <Grid justifyContent="center" container spacing={10}>
         <Grid style={{marginBottom: "50px"}}item xs ={12}>
-          <img src={header2} alt="Header" width="100%"/>
+          <img src={header} alt="Header" width="100%"/>
         </Grid>
         <Grid container spacing={10} style={{ justifyContent: "center", marginLeft: "200px",
          marginTop: "50px"}}>

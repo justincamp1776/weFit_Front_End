@@ -2,7 +2,8 @@ import React from "react";
 import './Home.css';
 import DisplayGoal from '../DisplayGoal/DisplayGoal'
 import {Grid}  from '@mui/material';
-import header2 from './Image/header2.png';
+// import header2 from './Image/header2.png';
+import header from './Image/header.png';
 import trainer from './Image/personalTraining.png';
 
 
@@ -13,7 +14,7 @@ const Home = (props) => {
 
         <Grid justifyContent="center" container spacing={10}>
                 <Grid item xs ={12} styling={{marginBottom: "50px"}}>
-                <img src={header2} alt="header" width="100%" />
+                <img src={header} alt="header" width="100%" />
                 </Grid>
                 <Grid justifyContent="center" container spacing={10} >
              <Grid />
