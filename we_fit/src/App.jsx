@@ -90,18 +90,11 @@ class App extends Component {
     console.log("User Variable in Render :", user);
 
     return (
-     
-      // <div
-      //   className="background"
-      //   style={{ backgroundImage: `url(${HomeScreen})`, color: "whitesmoke" }}
-      // >
+
     <div style={{backgroundColor: "black"}}>
-       
-         
+
        <NavBar user={this.state.user} userLogOut={this.userLogOut} isLoggedIn={this.state.isLoggedIn} callToAction={this.callToAction}/>
         <Router>
-          <div>
-
             <Switch>
               <Route
                 exact
@@ -114,7 +107,6 @@ class App extends Component {
                   }
                 }}
               />
-
               <Route
                 exact
                 path="/home"
@@ -151,7 +143,6 @@ class App extends Component {
                   }
                 }}
               />
-
                 <Route
                 exact
                 path="/routines"
@@ -170,9 +161,7 @@ class App extends Component {
               />
                <Route exact path="/services" render ={props => <Services {...props} />} />
             </Switch>
-          </div>
         </Router>
-       
         </div>
     );
   }

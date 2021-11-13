@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button, Grid} from '@mui/material';
-// import header from './Images/header2.png';
 import header from './Images/header.png';
 import group from './Images/group2.png';
 import trainer from './Images/trainer.png';
@@ -26,7 +25,6 @@ const Services = () => {
             <Grid item xs={12} style={{marginTop: "50px", marginLeft: "700px", fontSize: 25, color: "white"}}>
             <h3> Personal Training and Group Classes: </h3>
             </Grid>
-
             <Grid justifyContent="center" container spacing={10}style ={{marginTop: "50px", marginRight: "80px"}}>
                 <Grid item xs={3}/>
                 <Grid style={{color: "white", marginTop: "50px", paddingRight: "1px"}} item xs={3}>
@@ -42,10 +40,7 @@ const Services = () => {
                 <img src={trainer} alt="group training"style={{borderRadius:"50%"}} />
                 </Grid>
                 <Grid item xs={1}/>
-               
-
-
-            <Grid justifyContent="center" container spacing={10}style ={{marginTop: "50px", marginLeft: "180px"}}>
+                <Grid justifyContent="center" container spacing={10}style ={{marginTop: "50px", marginLeft: "180px"}}>
                 <Grid item xs={3} />
                 <Grid style={{color: "white", marginTop: "50px", paddingLeft: "30px"}} item xs={3}>
                     <h5> Fitness Classes:</h5>
@@ -59,17 +54,6 @@ const Services = () => {
                 <Grid item xs={6}>
                 <img src={group} alt="group training"style={{borderRadius:"50%"}} />
                 </Grid>
-              
-
-                <div style={{color: "white"}}>
-                    <hr/>
-                </div>
-
-
-               
-               
-
-
                 <Grid justifyContent="center" container spacing={10}style ={{marginTop: "50px", marginBottom: "100px", marginRight: "38px"}}>
                     {/* <Grid item xs={1}/> */}
                 <Grid item xs={3} />
@@ -85,7 +69,6 @@ const Services = () => {
                 <img src={virtual} alt="group training"style={{borderRadius:"50%"}} />
                 </Grid>
                 <Grid item xs={2}/>
-               
                 </Grid>
                 </Grid>
                 </Grid>

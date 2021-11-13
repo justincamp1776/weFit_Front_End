@@ -32,7 +32,7 @@ class DisplayRoutine extends Component {
         this.handleFilterRoutine();
     };
 
-    handleFilterRoutine = () =>{
+    handleFilterRoutine = async () =>{
         var routine = this.state.routine
         const newList = [];
         const lifts = this.state.exercises.map(function(item){
@@ -81,7 +81,7 @@ class DisplayRoutine extends Component {
                     {exercises.map(item =>
                     exercises.length > 0 ? 
                     <ListGroup.Item>{`${item.priority}` + "    " + `${item.name}`}  <SingleExercise exercise={item}/> </ListGroup.Item>
-                    : <h1>This is where undefined stuff goes</h1>
+                    : <h1>No exercises are currently available</h1>
                     )}
                 </ListGroup>
             </Card>

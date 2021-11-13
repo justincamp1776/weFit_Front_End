@@ -2,7 +2,6 @@ import React from "react";
 import './Home.css';
 import DisplayGoal from '../DisplayGoal/DisplayGoal'
 import {Grid}  from '@mui/material';
-
 import header2 from './Image/header2.png';
 import trainer from './Image/personalTraining.png';
 
@@ -17,19 +16,19 @@ const Home = (props) => {
                 <img src={header2} alt="header" width="100%" />
                 </Grid>
                 <Grid justifyContent="center" container spacing={10} >
-                <Grid style={{marginTop: "50px", marginLeft: "830px", color: "white"}}item xs={12}>
-                <h1> My Goal Tracker :</h1>
-                </Grid>
-                <Grid justifyContent="center" style={{marginRight: "120px", marginBottom: "200px"}} container spacing={10}> 
-                    <Grid item xs={3} item md={5}/>
+             <Grid />
+
+                <Grid justifyContent="center" style={{marginRight: "120px", marginBottom: "200px", marginTop: "150px"}} container spacing={10}> 
+                    <Grid item xs={4} item md={5}/>
                        <Grid justifyContent="center" style={{marginTop: "50px"}}item xs ={4} item md={2}>
                         <DisplayGoal user={props.user}/>
+                       
                         </Grid>
-                        <Grid item xs={5} item md={5} />
+                        <Grid item xs={4} item md={5} />
                         <hr/>
-                        <Grid direction="row" justifyContent="center" container spacing={10} style={{marginTop: "50px"}}>
+                        <Grid direction="row" justifyContent="center" container spacing={10} style={{marginTop: "50px", marginRight: "40px"}}>
                             <Grid item xs={2}/>
-                           <Grid item xs ={2} style={{color: "white", marginTop: "35px"}}>
+                           <Grid item xs ={2} style={{color: "white", marginTop: "100px"}}>
                             <h4>Client Testimony:</h4>
                          <p><i> weFit has helped me achieve my goals and now I feel better than I have in years. Their Goal Tracker was so convenient that I started 
                             using it for everything. I never have to "do fitness" alone again!
@@ -37,12 +36,16 @@ const Home = (props) => {
                         </p>
                          </Grid>
                         <Grid item xs ={6} >
-                        <img src={trainer} alt="personal training" style={{borderRadius:"50%"}}/>
+                        <img src={trainer} alt="personal training" style={{borderRadius:"8px"}}/>
                      </Grid>
                 </Grid>
+                </Grid>
+                </Grid>
             </Grid>
-        </Grid>
-        </Grid>
+            
+           
+          
+
 
 
         

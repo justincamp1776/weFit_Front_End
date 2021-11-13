@@ -70,6 +70,7 @@ const LoginForm = (props) => {
         autoFocus
         margin="dense"
         name = "password"
+        type= "password"
         label = "Password"
         fullWidth
         onChange={handlePasswordChange}

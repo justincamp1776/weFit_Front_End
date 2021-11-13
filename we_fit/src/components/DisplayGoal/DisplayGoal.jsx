@@ -2,15 +2,18 @@ import axios from "axios";
 import './DisplayGoal.css';
 import React, { Component } from "react";
 import {Card, ListGroup} from 'react-bootstrap';
-import {Button, Checkbox, Box}  from '@mui/material';
+import {Button, Checkbox}  from '@mui/material';
 import CreateGoalModal from '../CreatGoalModal/CreateGoalModal';
 import EditGoal from '../EditGoal/EditGoal';
+
 
 class DisplayGoal extends Component {
   constructor(props) {
     super(props);
     this.state = {
         goals: [],
+        checked: false
+ 
     };
   }
 
@@ -56,30 +59,28 @@ class DisplayGoal extends Component {
       return response.status
   }
 
+
+
   render() {
     var goals = this.state.goals;
     return (
   
-     
-        
         <Card style={{ width: '30rem' }}>
         <Card.Header style={{color: "black"}}> GOAL TRACKER:</Card.Header>
         <ListGroup variant="flush">
         {goals.map(item =>
-        goals.length > 0 ? 
-     
-        <ListGroup.Item>{item.custom_goal}    {console.log(item.id)} <Checkbox /> <br/> <span><Button onClick={()=>this.deleteGoal(item.id)}>Remove</Button>  <EditGoal goal={item}
-        editGoal={this.editGoal} user={this.props.user}/></span> </ListGroup.Item>
-        : <h1>This is where undefined stuff goes</h1>
+        <ListGroup.Item>{item.custom_goal}    {console.log(item.id)} <Checkbox   /> <br/>
+         <span><Button onClick={()=>this.deleteGoal(item.id)}>Remove</Button>  <EditGoal goal={item}
+        editGoal={this.editGoal} user={this.props.user}/></span> </ListGroup.Item> 
         )}
         </ListGroup>
         <CreateGoalModal user={this.props.user} postNewGoal={this.postNewGoal} />
-        </Card>
-
+        </Card> 
     );
   }
 }
 
 export default DisplayGoal;
+
 
 
