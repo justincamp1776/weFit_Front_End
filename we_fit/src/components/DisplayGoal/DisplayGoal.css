@@ -1,0 +1,12 @@
+.box{
+    
+}
+
+.spreadBox{
+    justify-content: "space-around";
+    align-items: "center";
+    height: 100;
+    display : "flex";
+    border: "1px solid black";
+    padding: 8
+}

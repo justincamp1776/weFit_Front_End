@@ -1,8 +1,10 @@
 import axios from "axios";
+import './DisplayGoal.css';
 import React, { Component } from "react";
 import {Card, ListGroup} from 'react-bootstrap';
-import {Button}  from '@mui/material';
+import {Button, Checkbox, Box}  from '@mui/material';
 import CreateGoalModal from '../CreatGoalModal/CreateGoalModal';
+import EditGoal from '../EditGoal/EditGoal';
 
 class DisplayGoal extends Component {
   constructor(props) {
@@ -41,6 +43,12 @@ class DisplayGoal extends Component {
     return response.status;
   };
 
+  editGoal = async (updatedGoal) =>{
+    const response = await axios.patch(` http://127.0.0.1:8000/api/goals/details/${updatedGoal.id}/`, updatedGoal);
+    this.getUserGoals();
+    return response.status
+  }
+
 
   deleteGoal = async (goalId) =>{
       const response = await axios.delete(`http://127.0.0.1:8000/api/goals/details/${goalId}/`)
@@ -51,13 +59,17 @@ class DisplayGoal extends Component {
   render() {
     var goals = this.state.goals;
     return (
- 
+  
+     
+        
         <Card style={{ width: '30rem' }}>
         <Card.Header style={{color: "black"}}> GOAL TRACKER:</Card.Header>
         <ListGroup variant="flush">
         {goals.map(item =>
         goals.length > 0 ? 
-        <ListGroup.Item>{item.custom_goal}    {console.log(item.id)}  <Button onClick={()=>this.deleteGoal(item.id)}>Delete</Button>   </ListGroup.Item>
+     
+        <ListGroup.Item>{item.custom_goal}    {console.log(item.id)} <Checkbox /> <br/> <span><Button onClick={()=>this.deleteGoal(item.id)}>Remove</Button>  <EditGoal goal={item}
+        editGoal={this.editGoal} user={this.props.user}/></span> </ListGroup.Item>
         : <h1>This is where undefined stuff goes</h1>
         )}
         </ListGroup>

@@ -16,7 +16,11 @@ const Home = (props) => {
                 <Grid item xs ={12} styling={{marginBottom: "50px"}}>
                 <img src={header2} alt="header" width="100%" />
                 </Grid>
-                    <Grid justifyContent="center" style={{marginRight: "120px", marginBottom: "200px"}} container spacing={10}> 
+                <Grid justifyContent="center" container spacing={10} >
+                <Grid style={{marginTop: "50px", marginLeft: "830px", color: "white"}}item xs={12}>
+                <h1> My Goal Tracker :</h1>
+                </Grid>
+                <Grid justifyContent="center" style={{marginRight: "120px", marginBottom: "200px"}} container spacing={10}> 
                     <Grid item xs={3} item md={5}/>
                        <Grid justifyContent="center" style={{marginTop: "50px"}}item xs ={4} item md={2}>
                         <DisplayGoal user={props.user}/>
@@ -37,6 +41,7 @@ const Home = (props) => {
                      </Grid>
                 </Grid>
             </Grid>
+        </Grid>
         </Grid>
 
 
