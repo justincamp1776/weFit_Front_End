@@ -36,7 +36,8 @@ const SingleExercise = (props) => {
                     <Card.Header style={{backgroundColor: "black", color: "whitesmoke"}}> {props.exercise.name}:</Card.Header>
                     <ListGroup variant="flush">
                     <ListGroup.Item>Plane of Movement : {props.exercise.plane}</ListGroup.Item>
-                    <ListGroup.Item>Symetries : {props.exercise.num_of_limbs}</ListGroup.Item>
+                    <ListGroup.Item>Anatomical Symmetry : {props.exercise.num_of_limbs}</ListGroup.Item>
+                    <ListGroup.Item>Muscular Action : {props.exercise.push_pull}</ListGroup.Item>
                     <ListGroup.Item>Primary Mover : {props.exercise.agonist}</ListGroup.Item>
                     <ListGroup.Item>Stabilizers : {props.exercise.synergist}</ListGroup.Item>
                     <ListGroup.Item>{props.exercise.about}</ListGroup.Item>

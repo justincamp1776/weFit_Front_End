@@ -144,7 +144,7 @@ const RegistrationForm = (props) => {
                 autoFocus
                 margin="dense"
                 name = "Birth Date"
-                label = "yyyy-mm-dd"
+                label = "DOB: yyyy-mm-dd"
                 fullWidth
                 onChange={handleBdayChange}
                 variant="standard"
