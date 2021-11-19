@@ -30,7 +30,6 @@ const Home = (props) => {
              <Grid />
              <Grid justifyContent="center" container spacing={10} style={{marginTop: "50px", marginLeft: "100px"}}>
                  <Grid item xs={3}>
-                   {userInfo ? <h1>Hello, {userInfo.first_name}</h1> : <h1>Hello</h1>}
                     <DisplayUserInfo userInfo={userInfo}/>
                  </Grid>
                  < Grid item xs={6} style={{color: "white"}}>
