@@ -59,6 +59,8 @@ class App extends Component {
     }
   };
 
+  
+
   getPrimaryLifts = () => {
     var primeLifts = [];
     let item = this.state.exercises.map(function (lift) {
