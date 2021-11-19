@@ -28,17 +28,17 @@ const UpdateWeight = (props) => {
      const handleSubmit = (event) => {
          event.preventDefault();
          console.log("handleSubmit :", weight);
-         props.editWeight(weight);
+         props.updateWeight(weight);
          handleClose();
      };
 
     return (  
         <div>
         {console.log("user :", props.userInfo, "weight :", props.userInfo.weight)}
-    <Button variant="text" size= "large" style={{color: "black"}} onClick={handleOpen}> Edit </Button>
+        <Button variant="text" size= "large" style={{color: "white"}} onClick={handleOpen}> Update </Button>
 
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>weFit</DialogTitle>
+            <DialogTitle>Fitness Tracker:</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                 </DialogContentText>
@@ -47,10 +47,9 @@ const UpdateWeight = (props) => {
                             className="mb-3"
                             controlId="exampleForm.ControlTextarea1"
                         >
-                            <Form.Label>Edit Goal</Form.Label>
+                            <Form.Label>Update Weight</Form.Label>
                             <Form.Control
-                            placeholder= {props.goal.custom_goal}
-                            
+                            placeholder= {props.userInfo.weight}
                             onChange = {handleFormChange}
                             as ="textarea"
                             rows={5}
