@@ -21,7 +21,7 @@ class WorkoutType extends Component {
     this.setState({
       select: event.target.value,
     });
-    console.log("handleChange :", this.state.select)
+    console.log("handleChange :", this.state.select);
   };
 
   handleSelect = (event) => {
@@ -48,7 +48,7 @@ class WorkoutType extends Component {
           weight: "Medium/ Heavy (75%-85% of 1 Rep Max)",
         },
       });
-    } else if(this.state.select === "3"){
+    } else if (this.state.select === "3") {
       this.setState({
         type: {
           name: "How To Workout",
@@ -71,7 +71,8 @@ class WorkoutType extends Component {
           <div>
             <select
               className="browser-default custom-select"
-              onChange={this.handleChange} onClick={this.handleSelect}
+              onChange={this.handleChange}
+              onClick={this.handleSelect}
             >
               <option>I want to :</option>
               <option value="1">Burn Fat and Lose Weight</option>
@@ -79,11 +80,15 @@ class WorkoutType extends Component {
               <option value="3">Increase Maximum Strength</option>
             </select>
           </div>
-         
-          <Card.Header style={{ color: "black" }}> How To Workout: </Card.Header>
+
+          <Card.Header style={{ color: "black" }}>
+            {" "}
+            How To Workout:{" "}
+          </Card.Header>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              Perform 1a then 1b and repeat until ALL rounds are complete. Then move on to 2a and 2b...repeat.
+              Perform 1a then 1b and repeat until ALL rounds are complete. Then
+              move on to 2a and 2b...
             </ListGroup.Item>
             <ListGroup.Item>REPS : </ListGroup.Item>
             <ListGroup.Item> All A Groups = {type.aReps}</ListGroup.Item>
