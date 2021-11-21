@@ -28,7 +28,7 @@ const Home = (props) => {
                 </Grid>
                 <Grid justifyContent="center" container spacing={10} >
              <Grid />
-             <Grid justifyContent="center" container spacing={10} style={{marginTop: "40px", marginLeft: "100px"}}>
+             <Grid justifyContent="center" container spacing={10} style={{marginTop: "40px", marginLeft: "150px"}}>
                  <Grid item xs={3} style={{paddingRight: "10px"}}>
                  < Grid item xs={1} />
                     <DisplayUserInfo userInfo={userInfo} user={props.user}/>
@@ -36,11 +36,11 @@ const Home = (props) => {
                  < Grid item xs={8} />
              </Grid>
              <Grid justifyContent="center" container spacing={10} >
-                 <Grid item xs={12} style={{marginLeft: "890px", color: "white", fontFamily: "-moz-initial"}}>
-                 <h1>Performance Training</h1>
+                 <Grid item xs={12} style={{marginLeft: "970px", color: "white", fontFamily: "-moz-initial"}}>
+                 <h1>Performance Goals</h1>
                  </Grid>
              </Grid>
-                <Grid justifyContent="center" style={{marginRight: "120px", marginBottom: "200px"}} container spacing={10}> 
+                <Grid justifyContent="center" style={{marginRight: "120px", marginBottom: "200px", marginLeft: "20px"}} container spacing={10}> 
                     <Grid item xs={4} item md={5}/>
                        <Grid justifyContent="center" style={{marginTop: "50px", paddingTop: "100px"}}item xs ={4} item md={2}>
                       

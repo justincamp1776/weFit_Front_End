@@ -5,7 +5,6 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-
 const NavBar = (props) => {
   return (
     <Navbar
@@ -14,7 +13,7 @@ const NavBar = (props) => {
       bg="dark"
       style={{ opacity: "80%", color: "red", fontSize: 20 }}
       variant="dark"
-      sticky="top" 
+      sticky="top"
     >
       {console.log("NavBar :", props.user)}
       <Container>
@@ -32,10 +31,7 @@ const NavBar = (props) => {
                 myRoutine
               </Nav.Link>
             )}
-             <Nav.Link href="/services">
-                {" "}
-                Services
-              </Nav.Link>
+            <Nav.Link href="/services"> Services</Nav.Link>
             {props.isLoggedIn && (
               <NavDropdown title="Resources" id="collasible-nav-dropdown">
                 <NavDropdown.Item
@@ -60,11 +56,7 @@ const NavBar = (props) => {
             )}
           </Nav>
           <Nav>
-          <Nav.Link
-                onClick={props.callToAction}
-              >
-                Contact
-              </Nav.Link>
+            <Nav.Link onClick={props.callToAction}>Contact</Nav.Link>
             {!props.isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
             {props.isLoggedIn && (
               <Nav.Link
@@ -75,7 +67,6 @@ const NavBar = (props) => {
                 Logout
               </Nav.Link>
             )}
-           
           </Nav>
         </Navbar.Collapse>
       </Container>
