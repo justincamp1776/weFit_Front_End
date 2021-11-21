@@ -33,15 +33,12 @@ const RegistrationForm = (props) => {
 
     const handleEmailChange = (event) =>{
         setEmail(event.target.value)
-        console.log("handleNameChange:", email)
     }
     const handlePasswordChange = (event) =>{
         setPassword(event.target.value)
-        console.log("handlePasswordChange:", password)
     }
     const handleFnameChange = (event) =>{
         setFirstName(event.target.value)
-        console.log("handlePasswordChange:", firstName)
     }
     const handleLnameChange = (event) =>{
         setLastName(event.target.value)
